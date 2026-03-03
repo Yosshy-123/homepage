@@ -1,30 +1,64 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Yosshy's HomePage</title>
-  <link rel="icon" href="./images/favicon.ico">
-  <link rel="stylesheet" href="./css/css2.css">
-  <link rel="stylesheet" href="./css/style.css">
-  <script src="./js/typed.js" defer></script>
-  <script src="./js/main.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yosshy's HomePage</title>
+  <link rel="icon" href="images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav>
-    <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./about.html">About</a></li>
-        <li><a href="./contact.html">Contact</a></li>
-    </ul>
-  </nav>
+
   <main>
-    <img src="./images/logo.png" alt="Yosshy-Logo" style="width: 20%; height: 20%;">
-    <section>
-      <h1><span id="Yosshy-title"></span></h1>
-      <p><span id="Yosshy"></span></p>
+    <section class="hero">
+      <div class="glass-card">
+        <img src="images/logo.png" alt="Yosshy logo" class="logo" id="logoImg">
+
+        <h1>Yosshy</h1>
+        <div class="subtitle">Creative Developer / Designer</div>
+
+        <p class="description">
+          I design bright, modern, memorable digital experiences 
+          with a glass-like aesthetic and soft, vibrant color systems.
+        </p>
+
+        <div class="buttons">
+          <a class="btn" href="mailto:Yosshy_123@proton.me" target="_blank" rel="noopener noreferrer">Contact</a>
+          <a class="btn" href="https://github.com/Yosshy-123/" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio">
+      <h2>Portfolio</h2>
+
+      <div class="grid">
+        <a class="project-card" href="https://example.com/project-one" target="_blank" rel="noopener noreferrer" aria-label="Open Project One">
+          <div class="thumb" role="img" aria-hidden="true"></div>
+          <h3>Project One</h3>
+          <p>Glassy UI design with fluid interaction and modern layout.</p>
+        </a>
+
+        <a class="project-card" href="https://example.com/project-two" target="_blank" rel="noopener noreferrer" aria-label="Open Project Two">
+          <div class="thumb" role="img" aria-hidden="true"></div>
+          <h3>Project Two</h3>
+          <p>Interactive landing page focused on clarity and engagement.</p>
+        </a>
+
+        <a class="project-card" href="https://example.com/project-three" target="_blank" rel="noopener noreferrer" aria-label="Open Project Three">
+          <div class="thumb" role="img" aria-hidden="true"></div>
+          <h3>Project Three</h3>
+          <p>High-energy brand UI with playful, modern visuals.</p>
+        </a>
+      </div>
     </section>
   </main>
-  <small>© 2025 Yosshy. All rights reserved.</small>
+
+  <footer>
+    © 2026 Yosshy. All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
