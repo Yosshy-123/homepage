@@ -66,17 +66,16 @@ section {
   border-radius: 50%;
   background: rgba(255,255,255,0.45);
   box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   overflow: hidden;
+  transition: transform 0.4s ease;
 }
 
 .logo img {
-  max-width: 70%;
-  max-height: 70%;
-  width: auto;
-  height: auto;
+  width: 65%;
+  height: 65%;
+  object-fit: contain;
   display: block;
 }
 
