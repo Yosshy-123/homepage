@@ -69,13 +69,15 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.4s ease;
+  overflow: hidden;
 }
 
 .logo img {
-  width: 70%;
-  height: 70%;
-  object-fit: contain
+  max-width: 70%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+  display: block;
 }
 
 .logo:hover {
