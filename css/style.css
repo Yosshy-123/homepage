@@ -73,8 +73,8 @@ section {
 }
 
 .logo img {
-  width: 80px;
-  height: 80px;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
   display: block;
 }
