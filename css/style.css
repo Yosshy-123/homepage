@@ -59,20 +59,25 @@ section {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.logo {
+.logo-wrapper {
   width: 96px;
   height: 96px;
-  margin-bottom: 18px;
-  padding: 8px;
+  margin: 0 auto 18px;
   border-radius: 50%;
   background: rgba(255,255,255,0.45);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-  transition: transform 0.4s ease;
-  overflow: hidden;
-  object-fit: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.logo:hover {
+.logo-wrapper img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logo-wrapper:hover {
   transform: scale(1.08) rotate(2deg);
 }
 
