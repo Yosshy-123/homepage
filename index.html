@@ -1,59 +1,113 @@
+```html
 <!doctype html>
 <html lang="en">
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yosshy's HomePage</title>
+
+  <title>Yosshy | JavaScript Developer</title>
+  <meta name="description" content="Yosshy — JavaScript developer creating web apps, chat systems and experimental projects.">
+
   <link rel="icon" href="images/favicon.ico">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 
-  <main>
-    <section class="hero">
-      <div class="glass-card glass">
-        <div class="logo">
-          <img src="images/logo.png" alt="Yosshy logo">
-        </div>
+<main>
 
-        <h1>Yosshy</h1>
-        <div class="subtitle">A passionate JavaScript developer</div>
+  <section class="hero" aria-label="Introduction">
+    <div class="glass-card glass">
 
-        <p class="description">
-          I enjoy coding and developing side projects.
-          <br>
-          Outside programming, I study UI design and explore new frameworks.
-        </p>
-
-        <div class="buttons">
-          <a class="btn" href="mailto:Yosshy_123@proton.me" target="_blank" rel="noopener noreferrer">Contact</a>
-          <a class="btn" href="https://github.com/Yosshy-123/" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </div>
+      <div class="logo">
+        <img src="images/logo.png" alt="Yosshy logo">
       </div>
-    </section>
 
-    <section class="portfolio">
-      <h2>Portfolio</h2>
+      <h1>Yosshy</h1>
 
-      <div class="grid">
-        <a class="project-card glass" href="https://kaeru-log.yosshy.f5.si/" target="_blank" rel="noopener noreferrer" aria-label="Open KAeRU Log">
-          <h3>KAeRU Log</h3>
-          <p>Lightweight Node.js and WebSocket Chat App</p>
+      <p class="subtitle">
+        A passionate JavaScript developer
+      </p>
+
+      <p class="description">
+        I enjoy coding and developing side projects.
+        <br>
+        Outside programming, I study UI design and explore new frameworks.
+      </p>
+
+      <div class="buttons">
+
+        <a
+          class="btn"
+          href="mailto:Yosshy_123@proton.me"
+          aria-label="Send email to Yosshy">
+          Contact
         </a>
 
-        <a class="project-card glass" href="https://choco-chat.yosshy.f5.si/" target="_blank" rel="noopener noreferrer" aria-label="Open Choco Chat">
-          <h3>Choco Chat</h3>
-          <p>Real-time chat app created by Banana</p>
-        </a>     
+        <a
+          class="btn"
+          href="https://github.com/Yosshy-123/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Yosshy's GitHub">
+          GitHub
+        </a>
+
       </div>
-    </section>
-  </main>
 
-  <footer>
-    © 2025-2026 Yosshy. All rights reserved.
-  </footer>
+    </div>
+  </section>
 
-  <script src="js/script.js"></script>
+  <section class="portfolio" aria-labelledby="portfolio-title">
+
+    <h2 id="portfolio-title">Portfolio</h2>
+
+    <div class="grid">
+
+      <a
+        class="project-card glass"
+        href="https://kaeru-log.yosshy.f5.si/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open KAeRU Log project">
+
+        <h3>KAeRU Log</h3>
+        <p>Lightweight Node.js and WebSocket chat application</p>
+
+      </a>
+
+      <a
+        class="project-card glass"
+        href="https://choco-chat.yosshy.f5.si/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open Choco Chat project">
+
+        <h3>Choco Chat</h3>
+        <p>Real-time chat application created by Banana</p>
+
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <small>© 2025–2026 Yosshy. All rights reserved.</small>
+</footer>
+
+<script src="js/script.js" defer></script>
+
 </body>
 </html>
+```
