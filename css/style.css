@@ -263,6 +263,10 @@ h1 {
     box-shadow .35s ease;
 }
 
+.project-card p {
+  text-align: center;
+}
+
 .card-visible {
   opacity: 1;
   transform: translateY(0);
