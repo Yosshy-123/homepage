@@ -128,6 +128,14 @@ section {
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: transform .4s ease;
+  opacity: 0;
+  transform: scale(.85);
+  transition: all 600ms cubic-bezier(.22,.9,.35,1);
+}
+
+.logo-visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .logo img {
@@ -248,10 +256,16 @@ h1 {
 
   opacity: 0;
   transform: translateY(40px);
+  transition: all 700ms cubic-bezier(.2,.9,.3,1);
 
   transition:
     transform .35s ease,
     box-shadow .35s ease;
+}
+
+.card-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project-card:hover {
