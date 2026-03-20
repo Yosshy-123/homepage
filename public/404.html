@@ -4,15 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>404 | Page Not Found</title>
-  <script>
-    (function () {
-      var path = location.pathname + location.search + location.hash;
-      var target = '/#/404?from=' + encodeURIComponent(path);
-      if (location.href !== target) location.replace(target);
-    })();
-  </script>
-</head>
-<body>
-  <noscript>Page not found.</noscript>
-</body>
+    <script>
+      location.replace('/');
+    </script>
+  </head>
+  <body></body>
 </html>
