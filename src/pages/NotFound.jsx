@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 
 export default function NotFound() {
   return (
@@ -34,14 +33,12 @@ export default function NotFound() {
           transition={{ delay: 0.2, duration: 0.4 }}
           className="mt-10"
         >
-          <Button
-            variant="outline"
+          <button
             onClick={() => (window.location.href = '/')}
-            className="flex items-center gap-2 rounded-full px-5 py-2 text-sm"
+            className="mt-10 inline-flex items-center gap-2 rounded-full border border-black/20 px-5 py-2 text-sm text-black/80 hover:bg-black/5"
           >
-            <ArrowLeft size={16} />
-            Back to Home
-          </Button>
+             ← Back to Home
+          </button>
         </motion.div>
 
         {/* bottom spacing element */}
