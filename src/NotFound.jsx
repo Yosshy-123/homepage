@@ -9,7 +9,6 @@ export default function NotFound() {
     <>
       <Helmet>
         <title>404 | Page Not Found</title>
-        <meta name="description" content="The page you’re looking for can’t be found." />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
