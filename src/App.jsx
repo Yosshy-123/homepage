@@ -10,11 +10,6 @@ const projects = [
     description: 'Lightweight Node.js and WebSocket chat application',
     href: 'https://kaeru-log.yosshy.f5.si/',
   },
-  {
-    title: 'Choco Chat',
-    description: 'Real-time chat application created by Banana',
-    href: 'https://choco-chat.yosshy.f5.si/',
-  },
 ]
 
 function ProjectCard({ title, description, href, index }) {
