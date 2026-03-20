@@ -3,6 +3,60 @@ import { motion } from 'framer-motion'
 import { Route, Routes } from 'react-router-dom'
 import NotFound from './pages/NotFound'
 
+const projects = [
+  {
+    title: 'KAeRU Log',
+    description: 'Lightweight Node.js and WebSocket chat application',
+    href: 'https://kaeru-log.yosshy.f5.si/',
+  },
+  {
+    title: 'Choco Chat',
+    description: 'Real-time chat application created by Banana',
+    href: 'https://choco-chat.yosshy.f5.si/',
+  },
+]
+
+function ProjectCard({ title, description, href, index }) {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = document.getElementById(`project-${index}`)
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.unobserve(entry.target)
+        }
+      },
+      { threshold: 0.18 },
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [index])
+
+  return (
+    <motion.a
+      id={`project-${index}`}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Open ${title} project`}
+      initial={{ opacity: 0, y: 32 }}
+      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
+      transition={{ duration: 0.7, ease: [0.2, 0.9, 0.3, 1], delay: index * 0.08 }}
+      whileHover={{ y: -6, scale: 1.01 }}
+      className="group block rounded-[20px] border border-white/40 bg-white/25 p-5 text-left text-slate-900 shadow-[0_20px_40px_rgba(0,0,0,0.14)] backdrop-blur-xl transition-transform"
+    >
+      <h3 className="text-xl font-semibold tracking-tight text-slate-900">
+        {title}
+      </h3>
+      <p className="mt-2 text-sm leading-6 text-slate-800/90">{description}</p>
+      <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-sky-600 transition-colors group-hover:text-pink-500">
+        Open project
+        <span aria-hidden="true">→</span>
       </div>
     </motion.a>
   )
