@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Route, Routes } from 'react-router-dom'
-import NotFound from './pages/NotFound'
+import NotFound from './NotFound'
 
 const projects = [
   {
