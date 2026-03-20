@@ -52,7 +52,7 @@ export default function NotFound() {
               className="inline-flex items-center gap-2 rounded-full border border-black/20 px-5 py-2 text-sm text-black/80 transition-colors hover:bg-black/5"
             >
               <ArrowLeft size={16} />
-              ← Back to Home
+                Back to Home
             </Link>
           </motion.div>
         </div>
