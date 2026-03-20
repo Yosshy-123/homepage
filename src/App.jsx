@@ -74,11 +74,7 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Yosshy</title>
-        <meta
-          name="description"
-          content="Yosshy portfolio site featuring projects and contact links."
-        />
+        <title>Yosshy | JavaScript Developer</title>
       </Helmet>
 
       <main className="min-h-screen overflow-x-hidden bg-[linear-gradient(135deg,#ffb6f9,#a0e9ff,#caa8ff)] bg-[length:300%_300%] text-slate-900 animate-gradientMove">
