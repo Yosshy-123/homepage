@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Route, Routes } from 'react-router-dom'
@@ -14,10 +14,9 @@ const projects = [
 
 function ProjectCard({ title, description, href, index }) {
   const [visible, setVisible] = useState(false)
-  const cardRef = useRef(null)
 
   useEffect(() => {
-    const el = cardRef.current
+    const el = document.getElementById(`project-${index}`)
     if (!el) return
 
     const observer = new IntersectionObserver(
@@ -32,39 +31,26 @@ function ProjectCard({ title, description, href, index }) {
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [])
+  }, [index])
 
   return (
     <motion.a
-      ref={cardRef}
+      id={`project-${index}`}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Open ${title} project`}
-      initial={{ opacity: 0, y: 24 }}
-      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
-      transition={{
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
-        delay: index * 0.08,
-      }}
-      whileHover={{ y: -4 }}
-      className="group project-card block rounded-[28px] p-6 text-left transition-all duration-300"
+      initial={{ opacity: 0, y: 32 }}
+      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
+      transition={{ duration: 0.7, ease: [0.2, 0.9, 0.3, 1], delay: index * 0.08 }}
+      whileHover={{ y: -6, scale: 1.01 }}
+      className="group block rounded-[20px] border border-white/40 bg-white/25 p-5 text-left text-slate-900 shadow-[0_20px_40px_rgba(0,0,0,0.14)] backdrop-blur-xl transition-transform"
     >
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h3 className="text-xl font-semibold tracking-tight project-title">
-            {title}
-          </h3>
-          <p className="mt-2 text-sm leading-6 project-subtext">{description}</p>
-        </div>
-
-        <div className="mt-1 rounded-full px-3 py-1 text-xs font-medium project-badge">
-          Project
-        </div>
-      </div>
-
-      <div className="mt-5 inline-flex items-center gap-2 text-sm font-medium project-link transition-transform duration-300 group-hover:translate-x-0.5">
+      <h3 className="text-xl font-semibold tracking-tight text-slate-900">
+        {title}
+      </h3>
+      <p className="mt-2 text-sm leading-6 text-slate-800/90">{description}</p>
+      <div className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-sky-600 transition-colors group-hover:text-pink-500">
         Open project
         <span aria-hidden="true">→</span>
       </div>
@@ -84,34 +70,19 @@ function HomePage() {
     <>
       <Helmet>
         <title>Yosshy | JavaScript Developer</title>
-        <meta
-          name="theme-color"
-          content="#f5f5f7"
-          media="(prefers-color-scheme: light)"
-        />
-        <meta
-          name="theme-color"
-          content="#0b0b0f"
-          media="(prefers-color-scheme: dark)"
-        />
       </Helmet>
 
-      <main className="app-shell relative min-h-screen overflow-x-hidden">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="app-glow app-glow-top absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full blur-3xl" />
-          <div className="app-glow app-glow-bottom absolute bottom-0 right-[-80px] h-80 w-80 rounded-full blur-3xl" />
-        </div>
-
-        <section className="relative flex min-h-screen items-center justify-center px-5 py-20">
+      <main className="min-h-screen overflow-x-hidden bg-[linear-gradient(135deg,#ffb6f9,#a0e9ff,#caa8ff)] bg-[length:300%_300%] text-slate-900 animate-gradientMove">
+        <section className="flex min-h-screen items-center justify-center px-5 py-20">
           <motion.div
-            initial={{ opacity: 0, y: 28, scale: 0.985 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="hero-card w-full max-w-[640px] rounded-[36px] p-8 text-center sm:p-12"
+            initial={{ opacity: 0, y: 36 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 0.9, 0.35, 1] }}
+            className="w-full max-w-[560px] rounded-[24px] border border-white/45 bg-white/25 p-7 text-center shadow-[0_20px_40px_rgba(0,0,0,0.14)] backdrop-blur-2xl sm:p-12"
           >
             <div
-              className={`hero-logo-wrap mx-auto mb-6 grid h-24 w-24 place-items-center overflow-hidden rounded-full ${
-                logoReady ? 'is-ready' : ''
+              className={`mx-auto mb-5 grid h-24 w-24 place-items-center overflow-hidden rounded-full bg-white/45 shadow-[0_8px_18px_rgba(0,0,0,0.08)] transition-all duration-700 ease-[cubic-bezier(.22,.9,.35,1)] ${
+                logoReady ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
               }`}
             >
               <img
@@ -121,30 +92,28 @@ function HomePage() {
               />
             </div>
 
-            <p className="section-eyebrow text-xs font-medium uppercase tracking-[0.28em]">
-              JavaScript Developer
-            </p>
-
-            <h1 className="hero-title mt-4 text-4xl font-semibold tracking-tight sm:text-6xl">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-[2.2rem]">
               Yosshy
             </h1>
-
-            <p className="hero-copy mx-auto mt-4 max-w-[34rem] text-base leading-7 sm:text-[1.05rem]">
-              A passionate JavaScript developer building side projects and
-              exploring UI design, product quality, and modern frameworks.
+            <p className="mt-2 text-sm font-medium text-slate-900/80 sm:text-base">
+              A passionate JavaScript developer
+            </p>
+            <p className="mt-4 text-sm leading-7 text-slate-900/90 sm:text-[0.95rem]">
+              I enjoy coding and developing side projects.
+              <br />
+              Outside programming, I study UI design and explore new frameworks.
             </p>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
               <a
-                className="glass-button inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold"
+                className="inline-flex items-center justify-center rounded-full border border-white/60 bg-white/85 px-6 py-2.5 font-semibold text-sky-600 shadow-[0_8px_18px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:bg-white/95 hover:text-pink-400 hover:shadow-[0_20px_40px_rgba(0,0,0,0.14)]"
                 href="mailto:Yosshy_123@proton.me"
                 aria-label="Send email to Yosshy"
               >
                 Contact
               </a>
-
               <a
-                className="glass-button inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold"
+                className="inline-flex items-center justify-center rounded-full border border-white/60 bg-white/85 px-6 py-2.5 font-semibold text-sky-600 shadow-[0_8px_18px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1 hover:bg-white/95 hover:text-pink-400 hover:shadow-[0_20px_40px_rgba(0,0,0,0.14)]"
                 href="https://github.com/Yosshy-123/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -156,24 +125,19 @@ function HomePage() {
           </motion.div>
         </section>
 
-        <section className="relative mx-auto max-w-[1100px] px-5 pb-14 sm:pb-20">
-          <div className="mb-8 text-center sm:mb-12">
-            <p className="section-eyebrow text-xs font-medium uppercase tracking-[0.28em]">
-              Selected work
-            </p>
-            <h2 className="section-title mt-3 text-2xl font-semibold tracking-tight sm:text-4xl">
-              Portfolio
-            </h2>
-          </div>
+        <section className="mx-auto max-w-[1100px] px-5 pb-12 text-center sm:pb-20">
+          <h2 className="mb-10 text-2xl font-semibold tracking-tight sm:mb-12 sm:text-[1.8rem]">
+            Portfolio
+          </h2>
 
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2">
             {projects.map((project, index) => (
               <ProjectCard key={project.title} index={index} {...project} />
             ))}
           </div>
         </section>
 
-        <footer className="site-footer relative px-5 pb-10 pt-2 text-center text-sm">
+        <footer className="px-5 pb-10 pt-2 text-center text-sm text-slate-900/70">
           <small>© 2025–2026 Yosshy. All rights reserved.</small>
         </footer>
       </main>
