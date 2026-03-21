@@ -3,87 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --bg: #f5f5f7;
-  --text: #111827;
-
-  --surface: rgba(255, 255, 255, 0.75);
-  --surface-strong: rgba(255, 255, 255, 0.9);
-  --surface-soft: rgba(255, 255, 255, 0.7);
-  --surface-border: rgba(0, 0, 0, 0.05);
-  --surface-shadow: rgba(0, 0, 0, 0.08);
-
-  --muted: #6b7280;
-  --subtext: #4b5563;
-  --accent: #0a84ff;
-  --accent-soft: rgba(10, 132, 255, 0.18);
-
-  --badge-bg: rgba(0, 0, 0, 0.05);
-  --badge-text: #374151;
-  --footer: #6b7280;
-
-  --notfound-bg: #ffffff;
-  --notfound-text: #0f172a;
-  --notfound-muted: #52525b;
-  --notfound-border: rgba(15, 23, 42, 0.1);
-  --notfound-link-bg: #ffffff;
-  --notfound-link-text: #18181b;
-  --notfound-link-hover: rgba(9, 9, 11, 0.05);
-
-  --glow-top: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 255, 255, 0.25) 45%,
-    rgba(255, 255, 255, 0) 72%
-  );
-
-  --glow-bottom: radial-gradient(
-    circle,
-    rgba(10, 132, 255, 0.18) 0%,
-    rgba(10, 132, 255, 0.08) 36%,
-    rgba(10, 132, 255, 0) 72%
-  );
-}
-
-.dark {
-  --bg: #0b0b0f;
-  --text: #ffffff;
-
-  --surface: rgba(255, 255, 255, 0.06);
-  --surface-strong: rgba(255, 255, 255, 0.1);
-  --surface-soft: rgba(255, 255, 255, 0.08);
-  --surface-border: rgba(255, 255, 255, 0.1);
-  --surface-shadow: rgba(0, 0, 0, 0.38);
-
-  --muted: #94a3b8;
-  --subtext: #cbd5e1;
-  --accent: #7ab7ff;
-  --accent-soft: rgba(10, 132, 255, 0.14);
-
-  --badge-bg: rgba(255, 255, 255, 0.1);
-  --badge-text: rgba(255, 255, 255, 0.7);
-  --footer: #94a3b8;
-
-  --notfound-bg: #0a0a0d;
-  --notfound-text: #fafafa;
-  --notfound-muted: #a1a1aa;
-  --notfound-border: rgba(255, 255, 255, 0.15);
-  --notfound-link-bg: #18181b;
-  --notfound-link-text: #f4f4f5;
-  --notfound-link-hover: rgba(255, 255, 255, 0.05);
-
-  --glow-top: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.08) 0%,
-    rgba(255, 255, 255, 0.03) 45%,
-    rgba(255, 255, 255, 0) 72%
-  );
-
-  --glow-bottom: radial-gradient(
-    circle,
-    rgba(10, 132, 255, 0.14) 0%,
-    rgba(10, 132, 255, 0.06) 36%,
-    rgba(10, 132, 255, 0) 72%
-  );
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #222;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -93,11 +20,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background-color: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI',
-    Roboto, 'Helvetica Neue', sans-serif;
-  transition: background-color 300ms ease, color 300ms ease;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
@@ -105,144 +28,8 @@ a {
   text-decoration: none;
 }
 
-.app-shell {
-  background-color: var(--bg);
-  color: var(--text);
-  transition: background-color 300ms ease, color 300ms ease;
-}
-
-.app-glow-top {
-  background: var(--glow-top);
-}
-
-.app-glow-bottom {
-  background: var(--glow-bottom);
-}
-
-.hero-card {
-  background: var(--surface);
-  border: 1px solid var(--surface-border);
-  box-shadow: 0 20px 60px var(--surface-shadow);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  transition: background-color 300ms ease, border-color 300ms ease,
-    box-shadow 300ms ease;
-}
-
-.hero-logo-wrap {
-  border: 1px solid var(--surface-border);
-  background: var(--surface-soft);
-  box-shadow: 0 8px 24px var(--surface-shadow);
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
-    background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
-}
-
-.hero-logo-wrap.is-ready {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.section-eyebrow {
-  color: var(--muted);
-}
-
-.hero-title {
-  color: var(--text);
-}
-
-.hero-copy {
-  color: var(--subtext);
-}
-
-.glass-button {
-  border: 1px solid var(--surface-border);
-  background: var(--surface-strong);
-  color: var(--text);
-  box-shadow: 0 8px 24px var(--surface-shadow);
-  transition: transform 300ms ease, background-color 300ms ease,
-    border-color 300ms ease, box-shadow 300ms ease, color 300ms ease;
-}
-
-.glass-button:hover {
-  transform: translateY(-2px);
-  background: var(--surface-strong);
-  border-color: var(--surface-border);
-  box-shadow: 0 14px 34px var(--surface-shadow);
-}
-
-.section-title {
-  color: var(--text);
-}
-
-.project-card {
-  border: 1px solid var(--surface-border);
-  background: var(--surface);
-  box-shadow: 0 10px 30px var(--surface-shadow);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  transition: transform 300ms ease, background-color 300ms ease,
-    border-color 300ms ease, box-shadow 300ms ease;
-}
-
-.project-card:hover {
-  border-color: color-mix(in srgb, var(--surface-border) 60%, transparent);
-  background: var(--surface-strong);
-  box-shadow: 0 18px 40px var(--surface-shadow);
-}
-
-.project-title {
-  color: var(--text);
-}
-
-.project-subtext {
-  color: var(--subtext);
-}
-
-.project-badge {
-  border: 1px solid var(--surface-border);
-  background: var(--badge-bg);
-  color: var(--badge-text);
-  transition: background-color 300ms ease, border-color 300ms ease,
-    color 300ms ease;
-}
-
-.project-link {
-  color: var(--accent);
-}
-
-.site-footer {
-  color: var(--footer);
-}
-
-.notfound-shell {
-  background-color: var(--notfound-bg);
-  color: var(--notfound-text);
-  transition: background-color 300ms ease, color 300ms ease;
-}
-
-.notfound-divider {
-  background: var(--notfound-border);
-}
-
-.notfound-title {
-  color: var(--notfound-text);
-}
-
-.notfound-text {
-  color: var(--notfound-muted);
-}
-
-.notfound-link {
-  border: 1px solid var(--notfound-border);
-  background: var(--notfound-link-bg);
-  color: var(--notfound-link-text);
-  transition: background-color 300ms ease, border-color 300ms ease,
-    color 300ms ease;
-}
-
-.notfound-link:hover {
-  background: var(--notfound-link-hover);
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
