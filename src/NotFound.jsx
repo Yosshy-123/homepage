@@ -12,21 +12,15 @@ export default function NotFound() {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
-      <main
-        className="min-h-screen bg-white text-zinc-950 transition-colors duration-300 dark:bg-zinc-950 dark:text-zinc-50"
-        style={{
-          fontFamily:
-            "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
-        }}
-      >
+      <main className="notfound-shell min-h-screen">
         <div className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-6 text-center">
-          <div className="mb-8 h-px w-16 bg-zinc-950/10 dark:bg-white/10" />
+          <div className="notfound-divider mb-8 h-px w-16" />
 
           <motion.h1
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="text-6xl font-semibold tracking-tight"
+            className="notfound-title text-6xl font-semibold tracking-tight"
           >
             404
           </motion.h1>
@@ -35,7 +29,7 @@ export default function NotFound() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.4 }}
-            className="mt-4 text-lg text-zinc-600 dark:text-zinc-400"
+            className="notfound-text mt-4 text-lg"
           >
             The page you’re looking for can’t be found.
           </motion.p>
@@ -48,7 +42,7 @@ export default function NotFound() {
           >
             <Link
               to="/"
-              className="inline-flex items-center gap-2 rounded-full border border-zinc-950/20 bg-white px-5 py-2 text-sm text-zinc-900 transition-colors hover:bg-zinc-950/5 dark:border-white/15 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-white/5"
+              className="notfound-link inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm"
             >
               <ArrowLeft size={16} />
               Back to Home
