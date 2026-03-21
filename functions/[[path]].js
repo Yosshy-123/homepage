@@ -1,18 +1,18 @@
 export async function onRequest(context) {
-  const url = new URL(context.request.url)
+  const reqPath = new Request(new URL(context.request.url).pathname, {
+    method: context.request.method,
+    headers: context.request.headers,
+  });
 
-  const response = await context.env.ASSETS.fetch(context.request)
+  const response = await context.env.ASSETS.fetch(reqPath);
 
-  if (response.status !== 404) {
-    return response
+  if (response.status === 404) {
+    const index = await context.env.ASSETS.fetch(new Request('/index.html'));
+    return new Response(index.body, {
+      status: 404,
+      headers: index.headers,
+    });
   }
 
-  const index = await context.env.ASSETS.fetch(
-    new Request(`${url.origin}/index.html`)
-  )
-
-  return new Response(index.body, {
-    status: 404,
-    headers: index.headers,
-  })
+  return response;
 }
