@@ -12,15 +12,17 @@ export default function NotFound() {
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
-      <main className="notfound-shell min-h-screen">
+      <main
+        className="min-h-screen bg-white text-black"
+      >
         <div className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-6 text-center">
-          <div className="notfound-divider mb-8 h-px w-16" />
+          <div className="mb-8 h-px w-16 bg-black/10" />
 
           <motion.h1
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="notfound-title text-6xl font-semibold tracking-tight"
+            className="text-6xl font-semibold tracking-tight"
           >
             404
           </motion.h1>
@@ -29,7 +31,7 @@ export default function NotFound() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1, duration: 0.4 }}
-            className="notfound-text mt-4 text-lg"
+            className="mt-4 text-lg text-black/60"
           >
             The page you’re looking for can’t be found.
           </motion.p>
@@ -42,10 +44,10 @@ export default function NotFound() {
           >
             <Link
               to="/"
-              className="notfound-link inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-black/20 px-5 py-2 text-sm text-black/80 transition-colors hover:bg-black/5"
             >
               <ArrowLeft size={16} />
-              Back to Home
+                Back to Home
             </Link>
           </motion.div>
         </div>
