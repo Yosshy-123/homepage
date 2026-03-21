@@ -2,36 +2,162 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  fontFamily: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+@layer base {
+  :root {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI',
+      Roboto, 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: light dark;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-  line-height: 1.5;
-  font-weight: 400;
+  html {
+    scroll-behavior: smooth;
+  }
 
-  color-scheme: light dark;
+  body {
+    margin: 0;
+    min-height: 100vh;
+  }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-}
+@layer components {
+  .app-shell {
+    @apply relative min-h-screen overflow-x-hidden bg-[#f5f5f7] text-[#111827] transition-colors duration-300 dark:bg-[#0b0b0f] dark:text-white;
+  }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-}
+  .app-background {
+    @apply pointer-events-none absolute inset-0 overflow-hidden;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  .app-background-glow {
+    @apply absolute rounded-full blur-3xl;
+  }
 
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  .app-background-glow-top {
+    @apply -top-24 left-1/2 h-72 w-72 -translate-x-1/2 bg-[radial-gradient(circle,_rgba(255,255,255,0.9)_0%,_rgba(255,255,255,0.25)_45%,_rgba(255,255,255,0)_72%)] dark:bg-[radial-gradient(circle,_rgba(255,255,255,0.08)_0%,_rgba(255,255,255,0.03)_45%,_rgba(255,255,255,0)_72%)];
+  }
+
+  .app-background-glow-bottom {
+    @apply bottom-0 right-[-80px] h-80 w-80 bg-[radial-gradient(circle,_rgba(10,132,255,0.18)_0%,_rgba(10,132,255,0.08)_36%,_rgba(10,132,255,0)_72%)] dark:bg-[radial-gradient(circle,_rgba(10,132,255,0.14)_0%,_rgba(10,132,255,0.06)_36%,_rgba(10,132,255,0)_72%)];
+  }
+
+  .hero-section {
+    @apply relative flex min-h-screen items-center justify-center px-5 py-20;
+  }
+
+  .hero-card {
+    @apply w-full max-w-[640px] rounded-[36px] border border-black/5 bg-white/75 p-8 text-center shadow-[0_20px_60px_rgba(0,0,0,0.08)] backdrop-blur-2xl sm:p-12 dark:border-white/10 dark:bg-white/[0.06] dark:shadow-[0_24px_80px_rgba(0,0,0,0.38)];
+  }
+
+  .hero-logo-wrap {
+    @apply mx-auto mb-6 grid h-24 w-24 place-items-center overflow-hidden rounded-full border border-black/5 bg-white/70 shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] dark:border-white/10 dark:bg-white/10 dark:shadow-[0_8px_24px_rgba(0,0,0,0.28)] scale-95 opacity-0;
+  }
+
+  .hero-logo-wrap.is-ready {
+    @apply scale-100 opacity-100;
+  }
+
+  .hero-logo {
+    @apply h-4/5 w-4/5 object-contain;
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.28em] text-[#6b7280] dark:text-[#94a3b8];
+  }
+
+  .hero-title {
+    @apply mt-4 text-4xl font-semibold tracking-tight text-[#111827] sm:text-6xl dark:text-white;
+  }
+
+  .hero-copy {
+    @apply mx-auto mt-4 max-w-[34rem] text-base leading-7 text-[#4b5563] sm:text-[1.05rem] dark:text-[#cbd5e1];
+  }
+
+  .hero-actions {
+    @apply mt-8 flex flex-wrap justify-center gap-3;
+  }
+
+  .glass-button {
+    @apply inline-flex items-center justify-center rounded-full border border-black/5 bg-white px-6 py-3 text-sm font-semibold text-[#111827] shadow-[0_8px_24px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-black/10 hover:bg-[#fafafa] hover:shadow-[0_14px_34px_rgba(0,0,0,0.12)] dark:border-white/10 dark:bg-white/10 dark:text-white dark:shadow-[0_8px_24px_rgba(0,0,0,0.26)] dark:hover:border-white/15 dark:hover:bg-white/15;
+  }
+
+  .portfolio-section {
+    @apply relative mx-auto max-w-[1100px] px-5 pb-14 sm:pb-20;
+  }
+
+  .section-header {
+    @apply mb-8 text-center sm:mb-12;
+  }
+
+  .section-title {
+    @apply mt-3 text-2xl font-semibold tracking-tight text-[#111827] sm:text-4xl dark:text-white;
+  }
+
+  .portfolio-grid {
+    @apply grid gap-5 md:grid-cols-2;
+  }
+
+  .project-card {
+    @apply block rounded-[28px] border border-black/5 bg-white/70 p-6 text-left shadow-[0_10px_30px_rgba(0,0,0,0.06)] backdrop-blur-xl transition-all duration-300 hover:border-black/10 hover:bg-white/90 hover:shadow-[0_18px_40px_rgba(0,0,0,0.10)] dark:border-white/10 dark:bg-white/5 dark:shadow-[0_10px_30px_rgba(0,0,0,0.28)] dark:hover:border-white/15 dark:hover:bg-white/8 dark:hover:shadow-[0_18px_40px_rgba(0,0,0,0.36)];
+  }
+
+  .project-card-title {
+    @apply text-xl font-semibold tracking-tight text-[#111827] dark:text-white;
+  }
+
+  .project-card-description {
+    @apply mt-2 text-sm leading-6 text-[#4b5563] dark:text-[#cbd5e1];
+  }
+
+  .project-badge {
+    @apply mt-1 rounded-full border border-black/5 bg-black/5 px-3 py-1 text-xs font-medium text-[#374151] dark:border-white/10 dark:bg-white/10 dark:text-white/70;
+  }
+
+  .project-link {
+    @apply mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#0a84ff] transition-transform duration-300 group-hover:translate-x-0.5 dark:text-[#7ab7ff];
+  }
+
+  .site-footer {
+    @apply relative px-5 pb-10 pt-2 text-center text-sm text-[#6b7280] dark:text-[#94a3b8];
+  }
+
+  .notfound-shell {
+    @apply min-h-screen bg-white text-zinc-950 transition-colors duration-300 dark:bg-zinc-950 dark:text-zinc-50;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI',
+      Roboto, 'Helvetica Neue', sans-serif;
+  }
+
+  .notfound-container {
+    @apply mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center px-6 text-center;
+  }
+
+  .notfound-divider {
+    @apply mb-8 h-px w-16 bg-zinc-950/10 dark:bg-white/10;
+  }
+
+  .notfound-title {
+    @apply text-6xl font-semibold tracking-tight;
+  }
+
+  .notfound-text {
+    @apply mt-4 text-lg text-zinc-600 dark:text-zinc-400;
+  }
+
+  .notfound-action {
+    @apply mt-10;
+  }
+
+  .notfound-link {
+    @apply inline-flex items-center gap-2 rounded-full border border-zinc-950/20 bg-white px-5 py-2 text-sm text-zinc-900 transition-colors hover:bg-zinc-950/5 dark:border-white/15 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-white/5;
+  }
 }
