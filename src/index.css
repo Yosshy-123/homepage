@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
-    "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  fontFamily: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
 
   line-height: 1.5;
   font-weight: 400;
