@@ -13,38 +13,27 @@ const projects = [
 ]
 
 function ProjectCard({ title, description, href, index }) {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const el = document.getElementById(`project-${index}`)
-    if (!el) return
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true)
-          observer.unobserve(entry.target)
-        }
-      },
-      { threshold: 0.18 },
-    )
-
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [index])
-
   return (
     <motion.a
-      id={`project-${index}`}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Open ${title} project`}
-      initial={{ opacity: 0, y: 32 }}
-      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 32 }}
-      transition={{ duration: 0.7, ease: [0.2, 0.9, 0.3, 1], delay: index * 0.08 }}
-      whileHover={{ y: -6, scale: 1.01 }}
-      className="group block rounded-[20px] border border-white/40 bg-white/25 p-5 text-left text-slate-900 shadow-[0_20px_40px_rgba(0,0,0,0.14)] backdrop-blur-xl transition-transform"
+      initial={{ opacity: 0, y: 18, filter: 'blur(6px)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+        delay: index * 0.08,
+      }}
+      whileHover={{
+        y: -4,
+        scale: 1.01,
+        transition: { type: 'spring', stiffness: 260, damping: 22 },
+      }}
+      whileTap={{ scale: 0.99 }}
+      className="group block rounded-[20px] border border-white/40 bg-white/25 p-5 text-left text-slate-900 shadow-[0_20px_40px_rgba(0,0,0,0.14)] backdrop-blur-xl will-change-transform"
     >
       <h3 className="text-xl font-semibold tracking-tight text-slate-900">
         {title}
