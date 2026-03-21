@@ -1,18 +1,17 @@
 export async function onRequest(context) {
-  const reqPath = new Request(new URL(context.request.url).pathname, {
-    method: context.request.method,
-    headers: context.request.headers,
-  });
+  try {
+    const url = new URL(context.request.url);
 
-  const response = await context.env.ASSETS.fetch(reqPath);
+    const response = await context.env.ASSETS.fetch(url.pathname);
 
-  if (response.status === 404) {
-    const index = await context.env.ASSETS.fetch(new Request('/index.html'));
-    return new Response(index.body, {
-      status: 404,
-      headers: index.headers,
-    });
+    if (response.status === 404) {
+      const index = await context.env.ASSETS.fetch('/index.html');
+      return new Response(index.body, { status: 404, headers: index.headers });
+    }
+
+    return response;
+  } catch (err) {
+    console.error('worker error', err);
+    return new Response('Internal Error', { status: 500 });
   }
-
-  return response;
 }
