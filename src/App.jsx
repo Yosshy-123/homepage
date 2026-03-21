@@ -127,7 +127,7 @@ function HomePage() {
         </section>
 
         <footer className="px-5 pb-10 pt-2 text-center text-sm text-slate-900/70">
-          <small>© 2025–2026 Yosshy. All rights reserved.</small>
+          <small>© 2025-2026 Yosshy. All rights reserved.</small>
         </footer>
       </main>
     </>
