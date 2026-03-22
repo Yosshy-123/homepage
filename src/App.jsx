@@ -75,7 +75,7 @@ function HomePage() {
               }`}
             >
               <img
-                src="/images/logo.png"
+                src="/logo.png"
                 alt="Yosshy logo"
                 className="h-4/5 w-4/5 object-contain"
               />
