@@ -114,7 +114,7 @@ function HomePage() {
           </motion.div>
         </section>
 
-        <section className="mx-auto max-w-[480px] px-5 pb-12 text-center sm:pb-20">
+        <section className="mx-auto max-w-[640px] px-5 pb-12 text-center sm:pb-20">
           <h2 className="mb-10 text-2xl font-semibold tracking-tight sm:mb-12 sm:text-[1.8rem]">
             Portfolio
           </h2>
