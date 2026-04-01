@@ -119,7 +119,7 @@ function HomePage() {
             Portfolio
           </h2>
 
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-8">
             {projects.map((project, index) => (
               <ProjectCard key={project.title} index={index} {...project} />
             ))}
