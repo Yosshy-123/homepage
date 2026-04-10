@@ -7,7 +7,7 @@ import NotFound from './NotFound'
 const projects = [
   {
     title: 'KAeRU Log',
-    description: 'Lightweight Node.js and WebSocket chat application',
+    description: 'Lightweight real-time chat powered by Redis',
     href: 'https://kaeru-log.yosshy.f5.si/',
   },
 ]
