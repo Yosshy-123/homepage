@@ -3,7 +3,7 @@ import { ExternalLink } from './ExternalLink'
 
 type PrimaryLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode
-  variant?: 'primary' | 'secondary'
+  variant?: 'primary'
 }
 
 const baseClassName =
@@ -12,8 +12,6 @@ const baseClassName =
 const variantClasses = {
   primary:
     'border-white/60 bg-white/85 text-sky-600 hover:bg-white/95 hover:text-pink-400',
-  secondary:
-    'border-white/60 bg-white/70 text-slate-900 hover:bg-white/85 hover:text-sky-700',
 } as const
 
 export function PrimaryLink({

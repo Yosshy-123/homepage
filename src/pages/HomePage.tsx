@@ -60,14 +60,10 @@ export function HomePage() {
             </p>
 
             <div className="mt-7 flex flex-wrap justify-center gap-3">
-              <PrimaryLink href={`mailto:${profile.contactEmail}`} aria-label={`Send email to ${profile.name}`}>
-                Contact
-              </PrimaryLink>
               <PrimaryLink
                 href={profile.githubUrl}
                 target="_blank"
                 aria-label={`Visit ${profile.name}'s GitHub in a new tab`}
-                variant="secondary"
               >
                 GitHub
               </PrimaryLink>
