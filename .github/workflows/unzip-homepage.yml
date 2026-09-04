@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.REPO_TOKEN }}
+          persist-credentials: true
 
       - name: Extract ZIP safely
         run: |
