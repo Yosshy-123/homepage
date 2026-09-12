@@ -20,7 +20,6 @@ export function HomePage() {
             name={profile.name}
             role={profile.role}
             bio={profile.bio}
-            githubUrl={profile.githubUrl}
             externalLinks={externalLinks}
           />
         </section>

@@ -6,11 +6,10 @@ type ProfileHeaderProps = {
   name: string
   role: string
   bio: readonly string[]
-  githubUrl: string
   externalLinks: readonly ExternalLinkItem[]
 }
 
-export function ProfileHeader({ name, role, bio, githubUrl, externalLinks }: ProfileHeaderProps) {
+export function ProfileHeader({ name, role, bio, externalLinks }: ProfileHeaderProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 36 }}
@@ -38,9 +37,6 @@ export function ProfileHeader({ name, role, bio, githubUrl, externalLinks }: Pro
       </p>
 
       <div className="mt-7 flex flex-wrap justify-center gap-3">
-        <PrimaryLink href={githubUrl} target="_blank" aria-label={`Visit ${name}'s GitHub in a new tab`}>
-          GitHub
-        </PrimaryLink>
         {externalLinks.map((link) => (
           <PrimaryLink
             key={link.url}
